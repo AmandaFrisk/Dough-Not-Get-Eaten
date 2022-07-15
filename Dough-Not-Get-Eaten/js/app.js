@@ -1,8 +1,9 @@
 
 
 //DOM QUERYSELECTORS
-let doughnut = document.querySelector("#doughnut")
-let mouth = document.querySelector('#mouth')
+//let doughnut = document.querySelector("#doughnut")
+//let mouth = document.querySelector('#mouth')
+let grabBox = document.querySelector('#box')
 //GLOBAL VARIABLES
 let bottomVar = 0
 let playerTurn = 0
@@ -24,14 +25,20 @@ constructor(player1, player2){
 
 
 
-//PlayBtn (){				
-//  event listener onclick   PLAY btn     
-//Background 
-//Add characters
+PlayBtn (){				
+document.body.style.backgroundColor="pink";  
+document.querySelector("#play-btn").remove()
+let doughnut = document.createElement('div')
+doughnut.setAttribute('id', 'doughnut')
+grabBox.appendChild(doughnut)
+let mouth = document.createElement('div')
+mouth.setAttribute('id', 'mouth')
+grabBox.appendChild(mouth)
+//add mouth
 //Add jump button 
 //Add go btn
 //}
-
+}
 jump(){
  console.log("inside jump funct")
     if(doughnut.classList != ('animate')){   // only do the following if the classList hasn't added animate- This is so that each click doesn't add classList animate each time.
@@ -46,7 +53,7 @@ console.log("test")
  
 
 
-
+//switch to start checking at the start button?
 checkEaten(){
     console.log("inside check funct")
     setInterval(function(){
@@ -56,8 +63,8 @@ checkEaten(){
        if(mouthLeft===50 && doughnutTop>=160){ //   would be right under the doughnut && haven't jumped over entire mouth
         
         console.log("Doughnut was eaten")
-        mouth.style.animation ="none"; // turn off animation
-        mouth.style.display ="none"; // can't see it anymore
+        doughnut.style.animation ="none"; // turn off animation
+        doughnut.style.display ="none"; // can't see it anymore
        }
    } ,10 ) ;  
 }
@@ -151,4 +158,5 @@ checkEaten(){
 
 let roundOne = new Game()
 //EVENT LISTENERS
-document.getElementById('jump-btn').addEventListener('click',(e)=>{roundOne.jump(),roundOne.checkEaten()}) 
+//document.getElementById('jump-btn').addEventListener('click',(e)=>{roundOne.jump(),roundOne.checkEaten()}) 
+document.getElementById('play-btn').addEventListener('click',(e)=>{roundOne.PlayBtn()}) 
