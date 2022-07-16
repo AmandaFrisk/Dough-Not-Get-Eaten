@@ -13,6 +13,7 @@ h1{
     left:220px;
 }
 #box-parent{
+    height: 500px;
     display:flex;
     justify-content: center;
     align-items:center;
@@ -68,9 +69,13 @@ body{
 }
 
 #jump-btn{
-background-color: rgb(216, 107, 160);
+background-color:white;
 position:relative;
-top:175px;
-right:500px;
+top:-100px;
+left: 317px;
+color:black;
 }
 
+#go-btn-player-1{
+    background-color: green;
+}
