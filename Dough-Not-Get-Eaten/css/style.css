@@ -72,10 +72,19 @@ body{
 background-color:white;
 position:relative;
 top:-100px;
-left: 317px;
+left: 300px;
 color:black;
 }
 
 #go-btn-player-1{
     background-color: green;
+    position: relative;
+    top: 497px;
+    left: 200px;
+}
+
+#dough-eaten{
+    display: none;
+    max-width: 20%;
+    max-height: 20%;
 }
