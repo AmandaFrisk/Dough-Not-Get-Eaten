@@ -7,6 +7,7 @@
 let grabBox = document.querySelector('#box')
 let grabEmptyGo = document.querySelector('#empty-go')
 let grabEmptyJump = document.querySelector("#empty-jump")
+let grabJumpBtn;
 //GLOBAL VARIABLES
 let bottomVar = 0
 //let playerTurn = 0//This controls the players turn //Odd # = player1//Even # = player2
@@ -18,7 +19,18 @@ constructor(player1, player2){
     this.player2=player2   
 }       
 //Methods :
-
+jump(){
+    console.log("inside jump funct")
+     //grabJumpBtn.onclick = function() {  
+    
+        if(doughnut.classList != ('animate')){   // only do the following if the classList hasn't added animate- This is so that each click doesn't add classList animate each time.
+    doughnut.classList.add('animate')   // access #doughnut via the sprinkles variable.Grab it's classList and use add() to animate- only runs one jump on it's own.
+    setTimeout(function(){
+        doughnut.classList.remove('animate');  //??? can't re add the same classList more than once. So have to remove after the animation is done.
+    } , 500)
+        }  
+    //}  
+    }
 
 PlayBtn (){				
 document.body.style.backgroundColor="pink";  
@@ -30,32 +42,36 @@ grabBox.appendChild(doughnut)
 let mouth=document.createElement('div')
 mouth.setAttribute('id', 'mouth')
 grabBox.appendChild(mouth)
-//create JUMP btn
-let jumpBtn=document.createElement('button')
-jumpBtn.innerText="JUMP";
-jumpBtn.setAttribute('id',"jump-btn")
-grabEmptyJump.appendChild(jumpBtn)
-
+//??create JUMP btn                                 
+//let jumpBtn=document.createElement('button')
+//jumpBtn.innerText="JUMP";
+//jumpBtn.setAttribute('id',"jump-btn")
+//grabEmptyJump.appendChild(jumpBtn)
+//OR
+grabJumpBtn=document.createElement('button')   
+grabJumpBtn.innerText="JUMP"
+grabJumpBtn.setAttribute('id',"jump-btn")
+grabJumpBtn.onclick=function(){jump()}
+grabEmptyJump.appendChild(grabJumpBtn)
     //create GO btn
-let goBtnPlayer1=document.createElement('button');
-goBtnPlayer1.innerText="GO";
-goBtnPlayer1.setAttribute("id", "go-btn-player-1")
-grabEmptyGo.appendChild(goBtnPlayer1);
+//let goBtnPlayer1=document.createElement('button');
+//goBtnPlayer1.innerText="GO";
+//goBtnPlayer1.setAttribute("id", "go-btn-player-1")
+//grabEmptyGo.appendChild(goBtnPlayer1);
 
 }
-jump(){
-console.log("inside jump funct")
-let grabjumpBtn = document.querySelector('#jump-btn')
- grabjumpBtn.onclick = function() {  
+// jump(){
+// console.log("inside jump funct")
+//  //grabJumpBtn.onclick = function() {  
 
-    if(doughnut.classList != ('animate')){   // only do the following if the classList hasn't added animate- This is so that each click doesn't add classList animate each time.
-doughnut.classList.add('animate')   // access #doughnut via the sprinkles variable.Grab it's classList and use add() to animate- only runs one jump on it's own.
-setTimeout(function(){
-    doughnut.classList.remove('animate');  //??? can't re add the same classList more than once. So have to remove after the animation is done.
-} , 500)
-    }  
-}  
-}
+//     if(doughnut.classList != ('animate')){   // only do the following if the classList hasn't added animate- This is so that each click doesn't add classList animate each time.
+// doughnut.classList.add('animate')   // access #doughnut via the sprinkles variable.Grab it's classList and use add() to animate- only runs one jump on it's own.
+// setTimeout(function(){
+//     doughnut.classList.remove('animate');  //??? can't re add the same classList more than once. So have to remove after the animation is done.
+// } , 500)
+//     }  
+// //}  
+// }
  
 
 
