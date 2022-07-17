@@ -8,9 +8,14 @@ h1{
     color:white;
 }
 #play-btn{
+    height:175px;
+    width: 175px;
     position:relative ;
-    top:100px;
-    left:220px;
+    top:19px;
+    left:190px;
+    border:none;
+     background-image :url(../images/sprinklesStart.png) 
+    
 }
 #box-parent{
     height: 500px;
@@ -20,9 +25,7 @@ h1{
 }
 body{
     background-color:red;                     /*used flex on the body to center #box since the body is the parent of #box*/
-    /*display:flex;
-    justify-content: center;
-    align-items:center;*/
+   
 }
 #box{
     background-color: white;
@@ -86,6 +89,3 @@ color:black;
     left: 200px;
 }
 
-/* #dough-eaten{
-    
-} */
