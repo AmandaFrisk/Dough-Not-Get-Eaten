@@ -3,7 +3,8 @@
 html,body{height:100%;
 }
 h1{
-    font-size: 30px;
+    font-size: 60px;
+    font-family:monospace,'Times New Roman', Times, serif;
     text-align: center;
     color:white;
 }
@@ -21,7 +22,7 @@ h1{
     font-weight: 900;
     color: white;
      background-image :url(../images/sprinklesStart.png) 
-    /* inner-text needs bolded */
+    
 }
 #box-parent{
     height: 500px;
@@ -93,3 +94,22 @@ color:black;
     left: 200px;
 }
 
+/* ____________________________________________________________*/
+/* 2 Player Below*/
+
+#play2-btn{
+    height:175px;
+    width: 175px;
+    position:relative ;
+    top:19px;
+    left:90px;
+    border:none;
+    border-radius: 50%;
+    padding:0%;
+    margin: 0%;
+    font-size: 40px;
+    font-weight: 900;
+    color: white;
+     background-image :url(../images/piggyStart.png) 
+    
+}
