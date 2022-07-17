@@ -19,17 +19,18 @@ let doughnut;
 //let playerTurn = 0//This controls the players turn //Odd # = player1//Even # = player2
 
 //CLASS
-class Game {
+class Game1 {
 constructor(player1, player2){
     this.player1=player1
     this.player2=player2  
+    this.startPlayer1;
 } 
     
 //Methods :
-PlayBtn (){	
+Play1Btn (){	
     //background change & play-btn removed		
     document.body.style.backgroundColor="pink";  
-    document.querySelector("#play-btn").remove()
+    document.querySelector("#play1-btn").remove()
     //create doughnut character
     doughnut=document.createElement('div')
     //let doughnut=document.createElement('div')
@@ -70,22 +71,24 @@ PlayBtn (){
     //grabBox.style.backgroundImage=src="./images/doughnutEatenImage.png"
      
      doughnutEaten=document.createElement('img')
-      doughnut.setAttribute('id', 'dough-eaten')
+    doughnut.setAttribute('id', 'dough-eaten')
     grabBox.appendChild(doughnutEaten)
     doughnutEaten.src=('../images/doughnutEatenImage.png')
     
    
     
-    // setTimeout((()=> {doughnutEaten.remove()}), 1500) 
+    //  setTimeout((()=> {doughnutEaten.remove()}), 1500) 
 
 
 
-//PlayScreen2()
+    //PlayScreen2()
  }
 
-// Start checking with Go button clicked
- checkEaten(){
+
+ checkEaten(){ // How long this function runs to determine player time score.
     console.log("inside check funct")
+    this.startPlayer1 = Date.now()
+    console.log("startPlayer1", this.startPlayer1)
     setInterval(()=>{
 
        const doughnutTop=parseInt(window.getComputedStyle(doughnut).getPropertyValue("top")); //get the top position of the #doughnut
@@ -99,107 +102,46 @@ PlayBtn (){
         mouth.style.display ="none";
         grabJumpBtn.remove();   
         this.doughnutEaten1();
+        this.player1Score();
        }
    } ,10 ) ;  
    
 }
 
-
+// How long this function runs to determine time.
 goPlayer1(){
     console.log("inside goPlayer1")
-let mouth=document.createElement('div')
-mouth.setAttribute('id', 'mouth')
-grabBox.appendChild(mouth)
-document.querySelector("#go-btn-player-1").remove()
-this.checkEaten()
+    let mouth=document.createElement('div')
+    mouth.setAttribute('id', 'mouth')
+    grabBox.appendChild(mouth)
+    document.querySelector("#go-btn-player-1").remove()
+    this.checkEaten()
 
-//Player1 Score()
 }
 
-//player1Score(){
-//Store time for player1
-//}
-
-// doughnutEaten1(){
-//     console.log("inside doughnutEaten1")
-//  doughnutEaten=document.createElement('div')
-//  doughnut.setAttribute('id', 'doughnut-eaten')
-//  grabBox.appendChild(doughnutEaten)
-// doughnutEatenImage=document.createElement("img")
-// doughnutEatenImage.setAttribute("id", "doughnut-eaten-image")
-// doughnutEaten.appendChild(doughnutEatenImage)
-// //doughnutEatenImage.src= ""
-// //setTimeout((()=> {doughnutEaten.remove()}), 1500) 
-
-// //Add eaten doughnut image
-
-// //PlayScreen2()
-
-// }
+player1Score(){
+    console.log("inside player1Score")
+    //trying to use Date.now()
+    // const startPlayer1 = Date.now()
+    //  console.log("startPlayer1", startPlayer1)
+     const durationP1 = Date.now() - this.startPlayer1;
+    console.log("durationP1", durationP1)
+    
+    
+}
 
 
-//PlayScreen2 (){				
-//Add/take off hiding for characters
-//Add/take off hiding for JUMP button
-//Add goPlayer2 btn
-//}
-
-//goPlayer2(){
-// eventlistener onclick GO PLAYER 1 btn 
-// Mouth Movement -collision with doughnut ends movement
-// Ending movement results in DoughnutEaten2()
-//player2 Score()
-//}
-
-//player2Score(){
-//Store time for player2
-//}
 
 
-//doughnutEaten2(){
-// timed only for a few seconds
-//Removes or hides characters
-//Removes or hides JUMP btn
-//Removes  goPlayer1 button
-//Add eaten doughnut image
-//Add Doughnut was eaten text
-//determineWinner()
-//}
 
 
-//determineWinner(){
-//Compare player1Score vs player2Score values -winnerTimer or tieTime
-//If winnerTime- winnerScreen()
-//If player1
-// - collect time in winnerTimeScore
-//- collect  1 in winnerName
-//If player2 - collect time in winnerTimeScore
-//-collect 2  in winnerName
-//If tie - tieScreen()
-   //collect === time in tieTimeScore
-//}
 
-//winnerScreen(){
-//Background change 
-//Add doughnut image
-//Add time= winnerTime
-//Add player  ___ is the winner!
-// _____ = playerName
-//}
-
-//tieScreen(){
-//Background change 
-//Add doughnut image
-//Add Tie!
-// Add tie statement
-//Add tietime to tie statement
-//} 
 }
 //NEW INSTANCE
-let roundOne = new Game()
+let onePlayer = new Game1()
 
 //EVENT LISTENERS
-document.getElementById('play-btn').addEventListener('click',(e)=>{roundOne.PlayBtn()}) 
+document.getElementById('play1-btn').addEventListener('click',(e)=>{onePlayer.Play1Btn()}) 
 //document.getElementById('jump-btn').addEventListener('click',(e)=>{roundOne.jump(),roundOne.checkEaten()}) 
 
  
