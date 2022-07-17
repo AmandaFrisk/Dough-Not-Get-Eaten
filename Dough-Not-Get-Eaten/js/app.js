@@ -61,7 +61,7 @@ PlayBtn (){
  } 
  
 
- doughnutEaten1(){
+ doughnutEaten1(){ //?? This is making a div set to #dough-eaten cant reach image for CSS
     console.log("inside doughnutEaten1 funct")
 
     
