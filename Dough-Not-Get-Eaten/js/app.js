@@ -91,7 +91,7 @@ PlayBtn (){
        const doughnutTop=parseInt(window.getComputedStyle(doughnut).getPropertyValue("top")); //get the top position of the #doughnut
       // parsInt because without it it would return the top position with px but we only want the number.                                
        const mouthLeft = parseInt(window.getComputedStyle(mouth).getPropertyValue("left")); //get the left position of the #mouth
-       if(mouthLeft===50 && doughnutTop>=160){ //   would be right under the doughnut && haven't jumped over entire mouth    
+       if(mouthLeft<90  && mouthLeft >30 && doughnutTop>=120){ //   would be right under the doughnut && haven't jumped over entire mouth    
         console.log("Doughnut was eaten")                   
         doughnut.style.animation ="none"; // turn off animation
         doughnut.style.display ="none"; // can't see it anymore
