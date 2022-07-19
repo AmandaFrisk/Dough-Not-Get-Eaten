@@ -31,7 +31,7 @@ h1{
     align-items:center;
 }
 body{
-    background-color:red;                     /*used flex on the body to center #box since the body is the parent of #box*/
+    background-color:rgb(233, 61, 61);                     /*used flex on the body to center #box since the body is the parent of #box*/
    
 }
 #box{
@@ -90,7 +90,7 @@ color:black;
 #go-btn-player-1{
     background-color: green;
     position: relative;
-    top: 497px;
+    top: 350px;
     left: 200px;
 }
 
@@ -112,4 +112,19 @@ color:black;
     color: white;
      background-image :url(../images/piggyStart.png) 
     
+}
+
+#turnTrackerDiv{
+
+    height: 50px;
+    width: 200px;
+}
+
+#turnTracker{
+    font-family:monospace,'Times New Roman', Times, serif; 
+}
+#turnChange{
+     /* color: black;  */
+    width: 200px;
+     /* border:2px solid red;  */
 }
