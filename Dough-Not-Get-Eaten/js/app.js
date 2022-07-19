@@ -75,12 +75,13 @@ Play1Btn (){
     console.log("inside check funct")
     this.startPlayer1 = Date.now()
     console.log("startPlayer1", this.startPlayer1)
-    setInterval(()=>{
+   let checkEatInv= setInterval(()=>{
 
        let doughnutTop=parseInt(window.getComputedStyle(doughnut).getPropertyValue("top")); //get the top position of the #doughnut
       // parsInt because without it it would return the top position with px but we only want the number.                                
        let mouthLeft = parseInt(window.getComputedStyle(mouth).getPropertyValue("left")); //get the left position of the #mouth
        if(mouthLeft<90  && mouthLeft >30 && doughnutTop>=120){ // 90= 30px(px distance from left side of div to left side of doughnut img) + 60px(width of doughnut img ) && 30= pxdistance from left side of div being greater than 30, so it hasn't passed the doughnut img. ---- both of these together mean that the mouth is in the same spot within the div as the doughnut. && 120 = 200 (div px height) - 80 (height of the mough) --- this means that the doughnut didn't jump over the mouth.
+       clearInterval(checkEatInv);
         console.log("Doughnut was eaten")                   
         doughnut.style.animation ="none"; // turn off animation
         doughnut.style.display ="none"; // can't see it anymore
@@ -138,6 +139,8 @@ class Game2 {
            this.turn=turn
            this.startPlayer1;
            this.startPlayer2;
+           this.durationP1;
+           this.durationP2;
            
     } 
         
@@ -207,9 +210,9 @@ class Game2 {
     
       checkEaten1(){ // 
          console.log("inside check funct")
-         this.startPlayer1 = Date.now()
+         this.startPlayer1 = Date.now()     // Date.now() returns the # of milliseconds elapsed since Jan 1 1970
          console.log("startPlayer1", this.startPlayer1)
-         setInterval(()=>{
+        let checkIntv1= setInterval(()=>{
     
            const doughnutTop1=parseInt(window.getComputedStyle(doughnut).getPropertyValue("top")); //get the top position of the #doughnut
           // parsInt because without it it would return the top position with px but we only want the number.                                
@@ -220,7 +223,7 @@ class Game2 {
             //  doughnut.style.display ="none";
             // mouth.style.animation ="none";
             //  mouth.style.display ="none";
-            clearInterval()
+            clearInterval(checkIntv1)
             doughnut.remove();
             mouth.remove();
             grabJumpBtn.remove(); 
@@ -243,13 +246,10 @@ class Game2 {
     
      }
     
-    player1Score(){
+    player1Score(){ //?????
          console.log("inside player1Score")
-        
-         const startPlayer1 = Date.now()
-          console.log("startPlayer1", startPlayer1)
-         const durationP1 = Date.now() - this.startPlayer1;
-         console.log("durationP1", durationP1)
+          this.durationP1 = Date.now() - this.startPlayer1; //
+         console.log("durationP1", this.durationP1) 
         
      }
      
@@ -290,25 +290,26 @@ class Game2 {
         console.log("inside check2 funct")
         this.startPlayer2 = Date.now()
         console.log("startPlayer2", this.startPlayer2)
-        checkIntv = setInterval(()=>{
+      let checkIntv2 = setInterval(()=>{
             console.log("inside setInterval check")
           const doughnutTop2=parseInt(window.getComputedStyle(doughnut).getPropertyValue("top")); //get the top position of the #doughnut - getComputedStyle=returns an object containing the values of all CSS properties of an element.getPropertValue=eturns a string containing the value of a specified CSS property
          // parsInt because without it it would return the top position with px but we only want the number.                                
            const mouthLeft2 = parseInt(window.getComputedStyle(mouth2).getPropertyValue("left"));
             //get the left position of the #mouth
            if(mouthLeft2<90  && mouthLeft2 >30 && doughnutTop2>=120){ // 90= 30px(px distance from left side of div to left side of doughnut img) + 60px(width of doughnut img ) && 30= pxdistance from left side of div being greater than 30, so it hasn't passed the doughnut img. ---- both of these together mean that the mouth is in the same spot within the div as the doughnut. && 120 = 200 (div px height) - 80 (height of the mough) --- this means that the doughnut didn't jump over the mouth.
-           console.log("Doughnut was eaten")                
-            doughnut.remove();
-              mouth2.remove();
-              grabJumpBtn.remove();   
+            clearInterval(checkIntv2);
+                console.log("Doughnut was eaten")                
+                doughnut.remove();
+                 mouth2.remove();
+                 grabJumpBtn.remove();   
                 this.doughnutEaten2();
-             this.player2Score();
-            this.determineWinner()
+                this.player2Score();
+                this.determineWinner()
            }
        } ,10 ) ;  
         
   }
-   // Need help with clearInterval()
+
 
   doughnutEaten2(){ 
     console.log("inside doughnutEaten2 funct")
@@ -321,21 +322,19 @@ class Game2 {
         console.log("ready to determine winner")
 }
     
-    player2Score(){
+    player2Score(){ //?????
         console.log("inside player2Score")
-        
-        const startPlayer2 = Date.now()
-         console.log("startPlayer2", startPlayer2)
-        const durationP2 = Date.now() - this.startPlayer2;
-        console.log("durationP2", durationP2)
+         this.durationP2 = Date.now() - this.startPlayer2;
+        console.log("durationP2", this.durationP2)
     }
     
 
-     determineWinner(){
+     determineWinner(){ //??? this isn't coming out to the correct winner
         console.log("Inside determineWinner")
         grabGoBtnPlayer2.remove()
         grabturnTrackerDiv.remove()
-
+console.log("d1",this.durationP1)
+console.log("d2", this.durationP2)
         if (this.durationP1 > this.durationP2){
             winnerImage=document.createElement('img')
             winnerImage.setAttribute('id', 'winner-image')
@@ -343,14 +342,14 @@ class Game2 {
             winnerImage.src=('../images/winnerImage.png')
             alert("The winner is Player 1!")
         }
-        if (this.durationP1 < this.durationP2){
+        else if (this.durationP1 < this.durationP2){
         winnerImage=document.createElement('img')
         winnerImage.setAttribute('id', 'winner-image')
         grabBox.appendChild(winnerImage)
         winnerImage.src=('../images/winnerImage.png')
         alert("The winner is Player 2!")
         }
-        else if(this.durationP1 === this.durationP2){
+        else {
         winnerImage=document.createElement('img')
         winnerImage.setAttribute('id', 'winner-image')
         winnerImage.src=('../images/tieImage.png')
