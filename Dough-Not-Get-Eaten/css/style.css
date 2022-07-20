@@ -4,6 +4,11 @@ html,body{
     height:100%;
     margin: 0%;
 }
+#wrapper{
+    margin-left: auto;
+    margin-right: auto;
+    width:960px;
+}
 h1{
     font-size: 60px;
     font-family:monospace,'Times New Roman', Times, serif;
@@ -82,20 +87,25 @@ body{
 }
 
 #jump-btn{
-background-color:white;
 position:absolute;
-top:410px;
-left: 240px; 
-color:black;
+top:510px;
+left: 490px; 
+color:white;
+text-shadow:1px 1px black;
+width: 50px;
+height:50px;
+font-size: 15px;
+font-weight: 900;
+}
+#go-btn-player-1{
+    position:absolute;
+    height: 100px;
+    width: 100px;
+    border-radius:50%;
+    top: 490px;
+    left: 330px;
 }
 
-#go-btn-player-1,#go-btn-player-2{
-    background-color: green;
-    position:absolute;
-    
-    top: 410px;
-    /* left: 130px; */ 
-}
 
 /* ____________________________________________________________*/
 /* 2 Player Below*/
@@ -121,17 +131,20 @@ color:black;
     position: absolute;
     height: 50px;
     width: 200px;
+    top: 0px;
 }
 
-#turnTracker{
+#turnTracker,#turnChange{
     position:absolute;
     font-family:monospace,'Times New Roman', Times, serif; 
+    font-size: large;
+    
 }
 #turnChange{
-    position: absolute;
-     /* color: black;  */
+    display: flex;
+    justify-content: center;
     width: 200px;
-     /* border:2px solid red;  */
+    font-size: large;
 }
 
 #mouth2{
@@ -156,3 +169,18 @@ height: 200px;
 text-align: center;
 
 }
+
+#go-btn-player-1a,#go-btn-player-2{
+    /* background-color: green; */
+    position:absolute;
+    height: 100px;
+    width: 100px;
+    border-radius:50%;
+    top: 370px; 
+     left: 320px; 
+}
+/* #go-btn-player-1a,#go-btn-player-2{
+   top: 370px; 
+     left: 320px; 
+} */
+
