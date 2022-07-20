@@ -176,12 +176,12 @@ class Game2 {
         doughnut.setAttribute('id', 'doughnut')
         grabBox.appendChild(doughnut)
         //create JUMP btn                                 
-        grabJumpBtn=document.createElement('button')   
-        grabJumpBtn.innerText="JUMP"
-        grabJumpBtn.style.backgroundImage= "url(../images/jumpBtnImage.png)"
-        grabJumpBtn.setAttribute('id',"jump-btn")
-        grabJumpBtn.addEventListener("click", ()=>this.jump()) // Arrow function and this. since it is calling a method w/in the class rather than a function
-        grabEmptyJump.appendChild(grabJumpBtn)
+        grabJumpBtn2=document.createElement('button')   
+        grabJumpBtn2.innerText="JUMP"
+        grabJumpBtn2.style.backgroundImage= "url(../images/jumpBtnImage.png)"
+        grabJumpBtn2.setAttribute('id',"jump-btn2")
+        grabJumpBtn2.addEventListener("click", ()=>this.jump()) // Arrow function and this. since it is calling a method w/in the class rather than a function
+        grabEmptyJump.appendChild(grabJumpBtn2)
     //create GO btn
         grabGoBtnPlayer1a=document.createElement('button');
         grabGoBtnPlayer1a.style.backgroundImage= "url(../images/goBtnImage.png)"
@@ -235,7 +235,7 @@ class Game2 {
             clearInterval(checkIntv1)
             doughnut.remove();
             mouth.remove();
-            grabJumpBtn.remove(); 
+            grabJumpBtn2.remove(); 
             this.player1Score();  
             this.doughnutEaten1();
              
@@ -271,12 +271,12 @@ class Game2 {
         doughnut.setAttribute('id', 'doughnut')
         grabBox.appendChild(doughnut)
         // //create JUMP btn                                 
-        grabJumpBtn=document.createElement('button')   
-        grabJumpBtn.innerText="JUMP"
-        grabJumpBtn.style.backgroundImage= "url(../images/jumpBtnImage.png)"
-        grabJumpBtn.setAttribute('id',"jump-btn")
-        grabJumpBtn.addEventListener("click", ()=>this.jump()) // Arrow function and this. since it is calling a method w/in the class rather than a function
-        grabEmptyJump.appendChild(grabJumpBtn)
+        grabJumpBtn2=document.createElement('button')   
+        grabJumpBtn2.innerText="JUMP"
+        grabJumpBtn2.style.backgroundImage= "url(../images/jumpBtnImage.png)"
+        grabJumpBtn2.setAttribute('id',"jump-btn2")
+        grabJumpBtn2.addEventListener("click", ()=>this.jump()) // Arrow function and this. since it is calling a method w/in the class rather than a function
+        grabEmptyJump.appendChild(grabJumpBtn2)
     //create GO btn
         grabGoBtnPlayer2=document.createElement('button');
         grabGoBtnPlayer2.style.backgroundImage= "url(../images/goBtnImage.png)"
@@ -311,7 +311,7 @@ class Game2 {
                 console.log("Doughnut was eaten")                
                 doughnut.remove();
                  mouth2.remove();
-                 grabJumpBtn.remove();   
+                 grabJumpBtn2.remove();   
                 this.doughnutEaten2();
                 this.player2Score();
                 this.determineWinner()
