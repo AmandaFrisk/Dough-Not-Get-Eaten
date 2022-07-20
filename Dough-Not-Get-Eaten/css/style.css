@@ -1,6 +1,8 @@
 
 
-html,body{height:100%;
+html,body{
+    height:100%;
+    margin: 0%;
 }
 h1{
     font-size: 60px;
@@ -81,17 +83,18 @@ body{
 
 #jump-btn{
 background-color:white;
-position:relative;
-top:-100px;
-left: 300px;
+position:absolute;
+top:410px;
+left: 240px; 
 color:black;
 }
 
 #go-btn-player-1,#go-btn-player-2{
     background-color: green;
-    position: relative;
-    top: 350px;
-    left: 200px;
+    position:absolute;
+    
+    top: 410px;
+    /* left: 130px; */ 
 }
 
 /* ____________________________________________________________*/
@@ -115,15 +118,17 @@ color:black;
 }
 
 #turnTrackerDiv{
-
+    position: absolute;
     height: 50px;
     width: 200px;
 }
 
 #turnTracker{
+    position:absolute;
     font-family:monospace,'Times New Roman', Times, serif; 
 }
 #turnChange{
+    position: absolute;
      /* color: black;  */
     width: 200px;
      /* border:2px solid red;  */
@@ -143,4 +148,11 @@ color:black;
 @keyframes mouth{
 0%{left:480px;}                          /* .Beginning with 480px to the left ie. the spot we but it in above at #mouth css */
 100%{left:0px;}                           /* Ends with 0px to the left- so that it is all the way to left side of the div at the end of the animation.*/
+}
+
+#winner-image{
+width: 200px;
+height: 200px;
+text-align: center;
+
 }
