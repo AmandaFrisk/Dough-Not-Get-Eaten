@@ -10,11 +10,13 @@ html,body{
     width:960px;
 }
 h1{
+    position: absolute;
     font-size: 60px;
     font-family:monospace,'Times New Roman', Times, serif;
-    text-align: center;
+    left:410px;
     color:white;
 }
+
 #play1-btn{
     height:175px;
     width: 175px;
@@ -87,9 +89,6 @@ body{
 }
 
 #jump-btn{
-position:absolute;
-top:510px;
-left: 490px; 
 color:white;
 text-shadow:1px 1px black;
 width: 50px;
@@ -97,14 +96,7 @@ height:50px;
 font-size: 15px;
 font-weight: 900;
 }
-#go-btn-player-1{
-    position:absolute;
-    height: 100px;
-    width: 100px;
-    border-radius:50%;
-    top: 490px;
-    left: 330px;
-}
+
 
 
 /* ____________________________________________________________*/
@@ -129,9 +121,16 @@ font-weight: 900;
 
 #turnTrackerDiv{
     position: absolute;
-    height: 50px;
+    height: 69px;
     width: 200px;
     top: 0px;
+    left: 0px;
+    margin-top: 40.200px;
+    margin-bottom: 40.200px;
+    margin-block-start:0.67em;
+    margin-block-end:0.67em ;
+    border:0%;
+    padding: 0%;   
 }
 
 #turnTracker,#turnChange{
@@ -144,7 +143,7 @@ font-weight: 900;
     display: flex;
     justify-content: center;
     width: 200px;
-    font-size: large;
+    font-size:x-large;
 }
 
 #mouth2{
@@ -170,19 +169,14 @@ text-align: center;
 
 }
 
-#go-btn-player-1a,#go-btn-player-2{
-    /* background-color: green; */
+#go-btn-player-1,#go-btn-player-1a,#go-btn-player-2{
     position:absolute;
-    height: 100px;
-    width: 100px;
+    height: 75px;
+    width: 75px;
     border-radius:50%;
-    top: 370px; 
-     left: 320px; 
+   
 }
 #jump-btn2{
- position:absolute;
-top:400px;
-left: 490px; 
 color:white;
 text-shadow:1px 1px black;
 width: 50px;
@@ -191,3 +185,13 @@ font-size: 15px;
 font-weight: 900;
 }
 
+#btnBox{
+position: absolute;
+top: 400px;
+left:360px;
+width: 180px;
+height: 80px;
+/* background-color: white; */
+display:flex;
+justify-content: space-between;
+}

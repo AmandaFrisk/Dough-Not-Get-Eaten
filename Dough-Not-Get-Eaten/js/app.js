@@ -42,7 +42,6 @@ Play1Btn (){
     grabEmptyJump.appendChild(grabJumpBtn)
     //create GO btn
     grabGoBtnPlayer1=document.createElement('button');
-    // grabGoBtnPlayer1.innerText="GO";
     grabGoBtnPlayer1.style.backgroundImage= "url(../images/goBtnImage.png)"
     grabGoBtnPlayer1.setAttribute("id", "go-btn-player-1")
     grabGoBtnPlayer1.addEventListener("click", ()=>this.goPlayer1())
