@@ -267,9 +267,6 @@ class Game2 {
     }
 
 
-
-
-
      jump(){
          console.log("inside jump funct")
         if(doughnut.classList != ('animate')){   // only do the following if the classList hasn't added animate- This is so that each click doesn't add classList animate each time.
@@ -404,7 +401,7 @@ class Game2 {
     grabBox.appendChild(doughnutEaten)
     doughnutEaten.src=('../images/doughnutEatenImage.png')
     
-        setTimeout((()=> {doughnutEaten.remove()}), 1500)  
+        setTimeout((()=> {doughnutEaten.remove()}), 1400)  
         console.log("ready to determine winner")
 }
     
@@ -448,12 +445,12 @@ class Game2 {
     
     setTimeout((()=> {   
         replay2P=document.createElement('button')
-         replay2P.style.backgroundImage= "url(../images/sprinklesStart.png)"
+         replay2P.style.backgroundImage= "url(../images/piggyStart.png)"
          replay2P.setAttribute("id", "replay-btn-P2")
          replay2P.innerText= "PLAY AGAIN"
          replay2P.addEventListener("click", ()=>this.rePlay2PBtn())
         grabBox.appendChild(replay2P);
-    }), 1500)  
+    }), 1900)  
 
     }
 }

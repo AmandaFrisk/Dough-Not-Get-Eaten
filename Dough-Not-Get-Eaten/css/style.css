@@ -198,7 +198,7 @@ display:flex;
 justify-content: space-between;
 }
 
-#replay-btn-P1{
+#replay-btn-P1,#replay-btn-P2{
     height:175px;
     width: 175px;
     position:relative ;
@@ -211,7 +211,6 @@ justify-content: space-between;
     font-size: 40px;
     font-weight: 900;
     color: white;
-     background-image :url(../images/sprinklesStart.png) 
 }
 #instructions{
 width: 350px;
