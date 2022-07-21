@@ -84,7 +84,7 @@ rePlay1Btn (){
  } 
  
 
- doughnutEaten1(){ //?? This is making a div set to #dough-eaten cant reach image for CSS
+ doughnutEaten1(){ 
     console.log("inside doughnutEaten1 funct")
     doughnutEaten=document.createElement('img')
     doughnutEaten.setAttribute('id', 'dough-eaten')
@@ -101,7 +101,7 @@ rePlay1Btn (){
 }), 1500)   
  }
 
-
+ 
  checkEaten(){ // How long this function runs to determine player time score.
     console.log("inside check funct")
     this.startPlayer1 = Date.now()
@@ -165,6 +165,7 @@ let grabGoBtnPlayer2;
 let mouth2;
 let winnerImage;
 let grabJumpBtn2;
+let replay2P;
 //CLASS 2 PLAYER
 
 class Game2 {
@@ -223,7 +224,52 @@ class Game2 {
         
     }
 
-   
+    rePlay2PBtn(){	
+        //remove replay btn
+        document.querySelector("#replay-btn-P2").remove()
+        // set turn back to 0 so that it will add 1 to the tracker below-- showing it's player 1's turn
+        this.turn=0
+        //create Turn Tracker
+        grabturnTrackerDiv=document.createElement('div')
+        grabturnTrackerDiv.setAttribute('id', "turnTrackerDiv")
+        document.body.appendChild(grabturnTrackerDiv)
+        grabturnTracker=document.createElement('div')
+        grabturnTracker.setAttribute('id', "turnTracker")
+        grabturnTrackerDiv.appendChild(grabturnTracker)
+        grabturnTrackerDiv.style.backgroundColor='white';
+        grabturnTracker.innerText="Player's Turn:"
+        this.turn+=1
+        turnChange= document.createElement('span')
+        turnChange.setAttribute('id', "turnChange")
+        turnChange.innerText=this.turn 
+        grabturnTracker.appendChild(turnChange)
+        console.log(this.turn)
+       // create doughnut character
+        doughnut=document.createElement('div')
+        doughnut.setAttribute('id', 'doughnut')
+        grabBox.appendChild(doughnut)
+        //create JUMP btn                                 
+        grabJumpBtn2=document.createElement('button')   
+        grabJumpBtn2.innerText="JUMP"
+        grabJumpBtn2.style.backgroundImage= "url(../images/jumpBtnImage.png)"
+        grabJumpBtn2.setAttribute('id',"jump-btn2")
+        grabJumpBtn2.addEventListener("click", ()=>this.jump()) // Arrow function and this. since it is calling a method w/in the class rather than a function
+        grabEmptyJump.appendChild(grabJumpBtn2)
+    //create GO btn
+        grabGoBtnPlayer1a=document.createElement('button');
+        grabGoBtnPlayer1a.style.backgroundImage= "url(../images/goBtnImage.png)"
+        // grabGoBtnPlayer1a.innerText="GO";
+        grabGoBtnPlayer1a.setAttribute("id", "go-btn-player-1a")
+        grabGoBtnPlayer1a.addEventListener("click", ()=>this.goPlayer1())
+        grabEmptyGo.appendChild(grabGoBtnPlayer1a);
+       
+        
+    }
+
+
+
+
+
      jump(){
          console.log("inside jump funct")
         if(doughnut.classList != ('animate')){   // only do the following if the classList hasn't added animate- This is so that each click doesn't add classList animate each time.
@@ -362,52 +408,63 @@ class Game2 {
         console.log("ready to determine winner")
 }
     
-    player2Score(){ //?????
+    player2Score(){ 
         console.log("inside player2Score")
          this.durationP2 = Date.now() - this.startPlayer2;
         console.log("durationP2", this.durationP2)
     }
     
 
-     determineWinner(){ //??? this isn't coming out to the correct winner
+     determineWinner(){ // ???Something is off with tie games
         console.log("Inside determineWinner")
         grabGoBtnPlayer2.remove()
         grabturnTrackerDiv.remove()
-console.log("d1",this.durationP1)
-console.log("d2", this.durationP2)
+        console.log("d1",this.durationP1)
+        console.log("d2", this.durationP2)
         if (this.durationP1 > this.durationP2){
+            alert("The winner is Player 1!")
             winnerImage=document.createElement('img')
             winnerImage.setAttribute('id', 'winner-image')
             grabBox.appendChild(winnerImage)
             winnerImage.src=('../images/winnerImage.png')
-            alert("The winner is Player 1!")
+            setTimeout((()=> {winnerImage.remove()}), 1500) 
         }
         else if (this.durationP1 < this.durationP2){
+        alert("The winner is Player 2!")
         winnerImage=document.createElement('img')
         winnerImage.setAttribute('id', 'winner-image')
         grabBox.appendChild(winnerImage)
         winnerImage.src=('../images/winnerImage.png')
-        alert("The winner is Player 2!")
+        setTimeout((()=> {winnerImage.remove()}), 1500) 
         }
         else {
+            alert("Wow! It was a tie game!")
         winnerImage=document.createElement('img')
         winnerImage.setAttribute('id', 'winner-image')
         grabBox.appendChild(winnerImage)
         winnerImage.src=('../images/tieImage.png')
-         alert("Wow! It was a tie game!")
-        
+        setTimeout((()=> {winnerImage.remove()}), 1500) 
     }
+    
+    setTimeout((()=> {   
+        replay2P=document.createElement('button')
+         replay2P.style.backgroundImage= "url(../images/sprinklesStart.png)"
+         replay2P.setAttribute("id", "replay-btn-P2")
+         replay2P.innerText= "PLAY AGAIN"
+         replay2P.addEventListener("click", ()=>this.rePlay2PBtn())
+        grabBox.appendChild(replay2P);
+    }), 1500)  
 
     }
 }
 
-// Add a replay btn
+
     //NEW INSTANCE
     let twoPlayer = new Game2(0)
     
     //EVENT LISTENERS
     document.getElementById('play2-btn').addEventListener('click',(e)=>{twoPlayer.Play2Btn()}) 
-    //document.getElementById('jump-btn').addEventListener('click',(e)=>{roundOne.jump(),roundOne.checkEaten()}) 
+    
     
      
 
