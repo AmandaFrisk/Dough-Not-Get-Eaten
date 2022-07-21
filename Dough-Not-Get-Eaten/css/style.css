@@ -213,3 +213,22 @@ justify-content: space-between;
     color: white;
      background-image :url(../images/sprinklesStart.png) 
 }
+#instructions{
+background-color: pink;
+width: 350px;
+height: 270px;
+font-weight: bold;
+position:relative;
+top:-130px;
+
+}
+#instructionDetails{
+    border-style: dotted;
+}
+
+.instrSpan{
+display: flex;
+flex-direction:column;
+font-size: medium;
+font-family:monospace,'Times New Roman', Times, serif;
+}
