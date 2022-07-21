@@ -4,15 +4,17 @@ html,body{
     height:100%;
     margin: 0%;
 }
-#wrapper{
-    margin-left: auto;
-    margin-right: auto;
-    width:960px;
+#wrapper{ 
+   min-width:900px;
+   margin-left:auto;
+   margin-right:auto;
+   width:960px;
 }
 h1{
-    position: absolute;
+    width: 100%;
     font-size: 60px;
     font-family:monospace,'Times New Roman', Times, serif;
+    text-align: center;
     left:410px;
     color:white;
 }
@@ -166,7 +168,8 @@ font-weight: 900;
 width: 200px;
 height: 200px;
 text-align: center;
-
+position: relative;
+left: 30%;
 }
 
 #go-btn-player-1,#go-btn-player-1a,#go-btn-player-2{
@@ -186,12 +189,11 @@ font-weight: 900;
 }
 
 #btnBox{
-position: absolute;
-top: 400px;
-left:360px;
+position: relative;
+top: -100px;
+left:130px;
 width: 180px;
 height: 80px;
-/* background-color: white; */
 display:flex;
 justify-content: space-between;
 }

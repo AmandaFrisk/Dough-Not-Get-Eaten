@@ -361,6 +361,7 @@ console.log("d2", this.durationP2)
         else {
         winnerImage=document.createElement('img')
         winnerImage.setAttribute('id', 'winner-image')
+        grabBox.appendChild(winnerImage)
         winnerImage.src=('../images/tieImage.png')
          alert("Wow! It was a tie game!")
         
