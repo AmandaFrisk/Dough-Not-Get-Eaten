@@ -197,3 +197,19 @@ height: 80px;
 display:flex;
 justify-content: space-between;
 }
+
+#replay-btn-P1{
+    height:175px;
+    width: 175px;
+    position:relative ;
+    top:19px;
+    left:140px;
+    border:none;
+    border-radius: 50%;
+    padding:0%;
+    margin: 0%;
+    font-size: 40px;
+    font-weight: 900;
+    color: white;
+     background-image :url(../images/sprinklesStart.png) 
+}

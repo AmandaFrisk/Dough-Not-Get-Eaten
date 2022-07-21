@@ -8,12 +8,13 @@ let grabEmptyJump=document.querySelector("#empty-jump")
 let grabDoughEaten=document.querySelector("#dough-eaten")
 
 //GLOBAL VARIABLES
-let bottomVar = 0
+let bottomVar =0;
 let grabJumpBtn;
 let grabGoBtnPlayer1;
 let doughnutEaten;
 let doughnut;
 let mouth;
+let replaybtn1P;
 
 //1 PLAYER CLASS
 class Game1 {
@@ -28,6 +29,30 @@ Play1Btn (){
     document.body.style.backgroundColor="pink";  
     document.querySelector("#play1-btn").remove()
     document.querySelector("#play2-btn").remove()
+    //create doughnut character
+    doughnut=document.createElement('div')
+    doughnut.setAttribute('id', 'doughnut')
+    grabBox.appendChild(doughnut)
+
+    //create JUMP btn                                 
+    grabJumpBtn=document.createElement('button')   
+    grabJumpBtn.innerText="JUMP"
+    grabJumpBtn.style.backgroundImage= "url(../images/jumpBtnImage.png)"
+    grabJumpBtn.setAttribute('id',"jump-btn")
+    grabJumpBtn.addEventListener("click", ()=>this.jump()) // Arrow function and this. since it is calling a method w/in the class rather than a function
+    grabEmptyJump.appendChild(grabJumpBtn)
+    //create GO btn
+    grabGoBtnPlayer1=document.createElement('button');
+    grabGoBtnPlayer1.style.backgroundImage= "url(../images/goBtnImage.png)"
+    grabGoBtnPlayer1.setAttribute("id", "go-btn-player-1")
+    grabGoBtnPlayer1.addEventListener("click", ()=>this.goPlayer1())
+    grabEmptyGo.appendChild(grabGoBtnPlayer1);
+
+}
+rePlay1Btn (){	
+    
+    document.querySelector("#replay-btn-P1").remove()
+    
     //create doughnut character
     doughnut=document.createElement('div')
     doughnut.setAttribute('id', 'doughnut')
@@ -65,10 +90,15 @@ Play1Btn (){
     doughnutEaten.setAttribute('id', 'dough-eaten')
     grabBox.appendChild(doughnutEaten)
     doughnutEaten.src=('../images/doughnutEatenImage.png')
-    
-   
-    
         setTimeout((()=> {doughnutEaten.remove()}), 1500)   
+        setTimeout((()=> {   
+    replaybtn1P=document.createElement('button')
+     replaybtn1P.style.backgroundImage= "url(../images/sprinklesStart.png)"
+     replaybtn1P.setAttribute("id", "replay-btn-P1")
+     replaybtn1P.innerText= "PLAY AGAIN"
+     replaybtn1P.addEventListener("click", ()=>this.rePlay1Btn())
+    grabBox.appendChild(replaybtn1P);
+}), 1500)   
  }
 
 
@@ -243,7 +273,7 @@ class Game2 {
        
    }
     
-    // Have the turn tracker start? but needs to change once checkEaten2 is met
+   
      goPlayer1(){ 
         console.log("inside goPlayer1")
         mouth=document.createElement('div')
@@ -254,7 +284,7 @@ class Game2 {
     
      }
     
-    player1Score(){ //?????
+    player1Score(){ 
          console.log("inside player1Score")
           this.durationP1 = Date.now() - this.startPlayer1; //
          console.log("durationP1", this.durationP1) 
