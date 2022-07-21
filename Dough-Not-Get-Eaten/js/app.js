@@ -1,7 +1,7 @@
 //1 PLAYER 
 
 //QUERYSELECTORS
-
+let grabIntroMusic = document.querySelector('#intro-music')
 let grabBox=document.querySelector('#box')
 let grabEmptyGo=document.querySelector('#empty-go')
 let grabEmptyJump=document.querySelector("#empty-jump")
@@ -15,7 +15,8 @@ let doughnutEaten;
 let doughnut;
 let mouth;
 let replaybtn1P;
-
+let gamePlayMusic = new Audio ("./Music/game-play.wav")
+let pigOinking = new Audio ('./Music/Pig-Oinking.mp3')
 //1 PLAYER CLASS
 class Game1 {
 constructor(){
@@ -25,6 +26,8 @@ constructor(){
     
 //Methods :
 Play1Btn (){	
+    // turn off background music
+    grabIntroMusic.remove();
     //background change & play-btn removed		
     document.body.style.backgroundColor="pink";  
     document.querySelector("#play1-btn").remove()
@@ -52,6 +55,7 @@ Play1Btn (){
 }
 rePlay1Btn (){	
     
+    //remove replay btn
     document.querySelector("#replay-btn-P1").remove()
     //create doughnut character
     doughnut=document.createElement('div')
@@ -89,6 +93,7 @@ rePlay1Btn (){
     doughnutEaten=document.createElement('img')
     doughnutEaten.setAttribute('id', 'dough-eaten')
     grabBox.appendChild(doughnutEaten)
+    pigOinking.play();
     doughnutEaten.src=('../images/doughnutEatenImage.png')
         setTimeout((()=> {doughnutEaten.remove()}), 1500)   
         setTimeout((()=> {   
@@ -118,9 +123,10 @@ rePlay1Btn (){
         doughnut.style.display ="none"; // can't see it anymore
         mouth.style.animation ="none";
         mouth.style.display ="none";
+        gamePlayMusic.pause();
         grabJumpBtn.remove();   
         this.doughnutEaten1();
-        this.player1Score();
+        // this.player1Score();           player1Score isn't currently being utilized. Keeping code commented out as an extension option.
        }
    } ,10 ) ;  
    
@@ -129,6 +135,10 @@ rePlay1Btn (){
 
 goPlayer1(){
     console.log("inside goPlayer1")
+    //Add Game Play Music
+    gamePlayMusic.play();
+    gamePlayMusic.loop = true;
+    //
      mouth=document.createElement('div')
     mouth.setAttribute('id', 'mouth')
     grabBox.appendChild(mouth)
@@ -137,11 +147,11 @@ goPlayer1(){
 
 }
 
-player1Score(){
-    console.log("inside player1Score")
-     const durationP1 = Date.now() - this.startPlayer1;
-    console.log("durationP1", durationP1)    
-}
+// player1Score(){                                              player1Score isn't currently being utilized. Keeping code commented out as an extension option.
+//     console.log("inside player1Score")
+//      const durationP1 = Date.now() - this.startPlayer1;
+//     console.log("durationP1", durationP1)    
+// }
 
 }
 //NEW INSTANCE
@@ -166,6 +176,9 @@ let mouth2;
 let winnerImage;
 let grabJumpBtn2;
 let replay2P;
+let winnerMusic = new Audio ('./Music/winnerMusic.mp3')
+let announceWinner;
+    
 //CLASS 2 PLAYER
 
 class Game2 {
@@ -180,6 +193,8 @@ class Game2 {
         
     //Methods :
     Play2Btn (){	
+        //remove intro music
+        grabIntroMusic.remove();
         //background change & play-btn removed		
         document.body.style.backgroundColor="pink";  
         document.querySelector("#play1-btn").remove()
@@ -280,6 +295,9 @@ class Game2 {
     
       doughnutEaten1(){ //?? This is making a div set to #dough-eaten cant reach image for CSS
         console.log("inside doughnutEaten funct")
+        // add pig oink sound effect
+        pigOinking.play();
+        // add doughnut image & set to be removed
         doughnutEaten=document.createElement('img')
         doughnutEaten.setAttribute('id', 'dough-eaten')
         grabBox.appendChild(doughnutEaten)
@@ -306,6 +324,7 @@ class Game2 {
             if(mouthLeft1<90  && mouthLeft1 >30 && doughnutTop1>=120){ // 90= 30px(px distance from left side of div to left side of doughnut img) + 60px(width of doughnut img ) && 30= pxdistance from left side of div being greater than 30, so it hasn't passed the doughnut img. ---- both of these together mean that the mouth is in the same spot within the div as the doughnut. && 120 = 200 (div px height) - 80 (height of the mouth) --- this means that the doughnut didn't jump over the mouth.
             console.log("Doughnut was eaten")                   
             clearInterval(checkIntv1)
+            gamePlayMusic.pause();
             doughnut.remove();
             mouth.remove();
             grabJumpBtn2.remove(); 
@@ -320,6 +339,10 @@ class Game2 {
    
      goPlayer1(){ 
         console.log("inside goPlayer1")
+        // add game play music
+        gamePlayMusic.play();
+        gamePlayMusic.loop = true;
+        //add mouth character
         mouth=document.createElement('div')
         mouth.setAttribute('id', 'mouth')
         grabBox.appendChild(mouth)
@@ -362,6 +385,10 @@ class Game2 {
    
       goPlayer2(){
         console.log("inside goPlayer2")
+        // add game play music
+        gamePlayMusic.play();
+        gamePlayMusic.loop = true;
+        // add mouth character
          mouth2=document.createElement('div')
         mouth2.setAttribute('id', 'mouth2')
         grabBox.appendChild(mouth2)
@@ -381,7 +408,8 @@ class Game2 {
             //get the left position of the #mouth
            if(mouthLeft2<90  && mouthLeft2 >30 && doughnutTop2>=120){ // 90= 30px(px distance from left side of div to left side of doughnut img) + 60px(width of doughnut img ) && 30= pxdistance from left side of div being greater than 30, so it hasn't passed the doughnut img. ---- both of these together mean that the mouth is in the same spot within the div as the doughnut. && 120 = 200 (div px height) - 80 (height of the mouth) --- this means that the doughnut didn't jump over the mouth.
             clearInterval(checkIntv2);
-                console.log("Doughnut was eaten")                
+                console.log("Doughnut was eaten")
+                gamePlayMusic.pause();              
                 doughnut.remove();
                  mouth2.remove();
                  grabJumpBtn2.remove();   
@@ -396,12 +424,15 @@ class Game2 {
 
   doughnutEaten2(){ 
     console.log("inside doughnutEaten2 funct")
+    // add pig oink sound effect
+    pigOinking.play();
+    // add doughnut image & set to be removed
     doughnutEaten=document.createElement('img')
     doughnutEaten.setAttribute('id', 'dough-eaten')
     grabBox.appendChild(doughnutEaten)
     doughnutEaten.src=('../images/doughnutEatenImage.png')
     
-        setTimeout((()=> {doughnutEaten.remove()}), 1400)  
+        setTimeout((()=> {doughnutEaten.remove()}), 1200)  
         console.log("ready to determine winner")
 }
     
@@ -411,7 +442,7 @@ class Game2 {
         console.log("durationP2", this.durationP2)
     }
     
-
+    // setTimeout((()=> {()}), 1200)  
      determineWinner(){ // ???Something is off with tie games
         console.log("Inside determineWinner")
         grabGoBtnPlayer2.remove()
@@ -419,28 +450,52 @@ class Game2 {
         console.log("d1",this.durationP1)
         console.log("d2", this.durationP2)
         if (this.durationP1 > this.durationP2){
-            alert("The winner is Player 1!")
+            // add announcement of winner if P1
+            setTimeout((()=> {
+            announceWinner=document.createElement('h2')
+            announceWinner.setAttribute('id', 'announce-winner')
+            announceWinner.innerText = " The winner is Player 1!"
+            document.body.appendChild(announceWinner)
+            winnerMusic.play();
             winnerImage=document.createElement('img')
             winnerImage.setAttribute('id', 'winner-image')
             grabBox.appendChild(winnerImage)
             winnerImage.src=('../images/winnerImage.png')
-            setTimeout((()=> {winnerImage.remove()}), 1500) 
+            }), 1200)  
+            setTimeout((()=> {winnerImage.remove()}), 2800) 
+            setTimeout((()=> {announceWinner.remove()}), 2800) 
         }
         else if (this.durationP1 < this.durationP2){
-        alert("The winner is Player 2!")
+        // add announcement of winner if P2
+        setTimeout((()=> {
+        announceWinner=document.createElement('h2')
+        announceWinner.setAttribute('id', 'announce-winner')
+        announceWinner.innerText = " The winner is Player 2!"
+        document.body.appendChild(announceWinner)
+        winnerMusic.play();
         winnerImage=document.createElement('img')
         winnerImage.setAttribute('id', 'winner-image')
         grabBox.appendChild(winnerImage)
         winnerImage.src=('../images/winnerImage.png')
-        setTimeout((()=> {winnerImage.remove()}), 1500) 
+        }), 1200) 
+        setTimeout((()=> {winnerImage.remove()}), 2800) 
+        setTimeout((()=> {announceWinner.remove()}), 2800) 
         }
         else {
-            alert("Wow! It was a tie game!")
+          // add tie announcement 
+          setTimeout((()=> {
+        announceWinner=document.createElement('h2')
+        announceWinner.setAttribute('id', 'announce-winner')
+        announceWinner.innerText = " Wow it was a tie!"
+        document.body.appendChild(announceWinner)
+            winnerMusic.play();
         winnerImage=document.createElement('img')
         winnerImage.setAttribute('id', 'winner-image')
         grabBox.appendChild(winnerImage)
+        }), 1200) 
         winnerImage.src=('../images/tieImage.png')
-        setTimeout((()=> {winnerImage.remove()}), 1500) 
+        setTimeout((()=> {winnerImage.remove()}), 2800) 
+        setTimeout((()=> {announceWinner.remove()}), 2800) 
     }
     
     setTimeout((()=> {   
@@ -450,9 +505,11 @@ class Game2 {
          replay2P.innerText= "PLAY AGAIN"
          replay2P.addEventListener("click", ()=>this.rePlay2PBtn())
         grabBox.appendChild(replay2P);
-    }), 1900)  
+    }), 3000)  
 
     }
+
+    
 }
 
 
