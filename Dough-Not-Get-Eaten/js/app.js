@@ -29,6 +29,7 @@ Play1Btn (){
     document.body.style.backgroundColor="pink";  
     document.querySelector("#play1-btn").remove()
     document.querySelector("#play2-btn").remove()
+    document.querySelector("#instructions").remove() 
     //create doughnut character
     doughnut=document.createElement('div')
     doughnut.setAttribute('id', 'doughnut')
@@ -52,7 +53,6 @@ Play1Btn (){
 rePlay1Btn (){	
     
     document.querySelector("#replay-btn-P1").remove()
-    
     //create doughnut character
     doughnut=document.createElement('div')
     doughnut.setAttribute('id', 'doughnut')
@@ -184,6 +184,7 @@ class Game2 {
         document.querySelector("#play1-btn").remove()
         document.querySelector("#play2-btn").remove()
         document.querySelector("#title").remove()
+        document.querySelector("#instructions").remove() 
         //create Turn Tracker
        
         grabturnTrackerDiv=document.createElement('div')

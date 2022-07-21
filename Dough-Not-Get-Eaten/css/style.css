@@ -214,16 +214,20 @@ justify-content: space-between;
      background-image :url(../images/sprinklesStart.png) 
 }
 #instructions{
-background-color: pink;
 width: 350px;
 height: 270px;
+font-size: x-large;
 font-weight: bold;
 position:relative;
+color:white;
 top:-130px;
+
 
 }
 #instructionDetails{
     border-style: dotted;
+    background-color: pink;
+    display:none;            /*hidden for hover effect*/
 }
 
 .instrSpan{
@@ -231,4 +235,9 @@ display: flex;
 flex-direction:column;
 font-size: medium;
 font-family:monospace,'Times New Roman', Times, serif;
+color:black;
+}
+
+#instructions:hover #instructionDetails{
+    display:block;
 }
