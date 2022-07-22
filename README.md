@@ -2,7 +2,7 @@
 
 The Dough-Not Get Eaten game was created as a unit 1 project for a software engineering immersive bootcamp. This game demonstrates some of the coding skills and logic in HTML, CSS and JavaScript that I've acquired during the unit.
 
-There is a 1 and 2 player option. Player click a button to jump in order to avoid the doughnut character getting eaten by a pig character. In the player 2 version, players' times are compared to announce a win.
+There is a 1 and 2 player option. Player clicks a button to jump in order to avoid the doughnut character getting eaten by a pig character. In the player 2 version, players' times are compared to announce a winner.
 
 Initial Wireframe:
 ![DOUGH-NOT GET EATEN](https://user-images.githubusercontent.com/104706798/180518652-06b9c0ea-074a-42f5-90f7-f642be6d81f7.png)
