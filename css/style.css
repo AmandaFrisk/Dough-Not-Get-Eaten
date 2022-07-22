@@ -1,0 +1,253 @@
+
+
+html,body{
+    height:100%;
+    margin: 0%;
+}
+#wrapper{ 
+   min-width:900px;
+   margin-left:auto;
+   margin-right:auto;
+   width:960px;
+}
+h1{
+    width: 100%;
+    font-size: 60px;
+    font-family:monospace,'Times New Roman', Times, serif;
+    text-align: center;
+    left:410px;
+    color:white;
+}
+
+#play1-btn{
+    height:175px;
+    width: 175px;
+    position:relative ;
+    top:19px;
+    left:40px;
+    border:none;
+    border-radius: 50%;
+    padding:0%;
+    margin: 0%;
+    font-size: 40px;
+    font-weight: 900;
+    color: white;
+     background-image :url(../images/sprinklesStart.png) 
+    
+}
+#box-parent{
+    height: 500px;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}
+body{
+    background-color:rgb(233, 61, 61);                     /*used flex on the body to center #box since the body is the parent of #box*/
+   
+}
+#box{
+    background-color: white;
+    width: 500px;
+    height: 200px;
+    border-right: 0%;
+    border: 1px solid black; 
+    
+}
+
+#doughnut{
+   
+    width:60px;  
+    height:60px; 
+    background-image:url(../images/sprinkles.png);
+    position:relative;                  /* nothing changes with relative on it's own. Allows to change position relative to its normal document flow position; top,left,right and bottom. */
+     top:150px;     /* Pushes doughnut div to the bottom of the parent box div.-Box div is 200px height. #doughnut is 20 px height. 200-20=180. So addes 180px above. */
+    left:30px;                      /*adds space to the left, inturn moving the #doughnut to the right. */
+}
+.animate{
+    animation: jump 1s ;                /* add jump animation to #doughnut every 1s*/
+      }                        
+      
+  @keyframes jump{                      /* jump animation for #doughnut. */
+    0%{top:180px}                     /* begins with 180 px above */
+   30%{top:90px}                    /* 1/3 of the way there is 100px above*/
+    70%{top:90px}                   /* 70* ther is still 100px above*/
+    100%{top:180px}                   /* Ending back at 180px above*/
+  }                   
+
+#mouth{
+    width:60px; /*changed from 20px*/
+    height:80px; /*changed from 40px*/
+    background-image:url(../images/piggy.png);
+    position:relative;
+    top: 70px;   /*changed from 140px                      /* Pushes mouth div to bottom of parent box div. - mouth div starts with a 20px space from the top because of the doughnut div prior to being re-positioned./* 180px from top of mouth div to bottom of box div.Mouth div is 50 px so 180-50=130 */                           
+    left:440px;  /*changed from 480px                      /*Pushes character all the way to the right of the parent div.- Box div is 500 px wide mouth is 20 px wide. 500-20=480 */  
+     animation:mouth 1s infinite linear;                  /* add animation to mouth- every 1s infinitely .  */
+    
+}
+ 
+@keyframes mouth{
+0%{left:480px;}                          /* .Beginning with 480px to the left ie. the spot we but it in above at #mouth css */
+100%{left:0px;}                           /* Ends with 0px to the left- so that it is all the way to left side of the div at the end of the animation.*/
+}
+
+#jump-btn{
+color:white;
+text-shadow:1px 1px black;
+width: 50px;
+height:50px;
+font-size: 15px;
+font-weight: 900;
+}
+
+
+
+/* ____________________________________________________________*/
+/* 2 Player Below*/
+
+#play2-btn{
+    height:175px;
+    width: 175px;
+    position:relative ;
+    top:19px;
+    left:90px;
+    border:none;
+    border-radius: 50%;
+    padding:0%;
+    margin: 0%;
+    font-size: 40px;
+    font-weight: 900;
+    color: white;
+     background-image :url(../images/piggyStart.png) 
+    
+}
+
+#turnTrackerDiv{
+    position: absolute;
+    height: 69px;
+    width: 200px;
+    top: 0px;
+    left: 0px;
+    margin-top: 40.200px;
+    margin-bottom: 40.200px;
+    margin-block-start:0.67em;
+    margin-block-end:0.67em ;
+    border:0%;
+    padding: 0%;   
+}
+
+#turnTracker,#turnChange{
+    position:absolute;
+    font-family:monospace,'Times New Roman', Times, serif; 
+    font-size: large;
+    
+}
+#turnChange{
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    font-size:x-large;
+}
+
+#mouth2{
+    width:60px; /*changed from 20px*/
+    height:80px; /*changed from 40px*/
+    background-image:url(../images/piggy.png);
+    position:relative;
+    top: 70px;   /*changed from 140px                      /* Pushes mouth div to bottom of parent box div. - mouth div starts with a 20px space from the top because of the doughnut div prior to being re-positioned./* 180px from top of mouth div to bottom of box div.Mouth div is 50 px so 180-50=130 */                           
+    left:440px;  /*changed from 480px                      /*Pushes character all the way to the right of the parent div.- Box div is 500 px wide mouth is 20 px wide. 500-20=480 */  
+     animation:mouth 1s infinite linear;                 /* add animation to mouth- every 1s infinitely . */
+    
+}
+ 
+@keyframes mouth{
+0%{left:480px;}                          /* .Beginning with 480px to the left ie. the spot we but it in above at #mouth css */
+100%{left:0px;}                           /* Ends with 0px to the left- so that it is all the way to left side of the div at the end of the animation.*/
+}
+
+#winner-image{
+width: 200px;
+height: 200px;
+text-align: center;
+position: relative;
+left: 30%;
+}
+
+#go-btn-player-1,#go-btn-player-1a,#go-btn-player-2{
+    position:absolute;
+    height: 75px;
+    width: 75px;
+    border-radius:50%;
+   
+}
+#jump-btn2{
+color:white;
+text-shadow:1px 1px black;
+width: 50px;
+height:50px;
+font-size: 15px;
+font-weight: 900;
+}
+
+#btnBox{
+position: relative;
+top: -100px;
+left:130px;
+width: 180px;
+height: 80px;
+display:flex;
+justify-content: space-between;
+}
+
+#replay-btn-P1,#replay-btn-P2{
+    height:175px;
+    width: 175px;
+    position:relative ;
+    top:19px;
+    left:140px;
+    border:none;
+    border-radius: 50%;
+    padding:0%;
+    margin: 0%;
+    font-size: 40px;
+    font-weight: 900;
+    color: white;
+}
+#instructions{
+width: 350px;
+height: 270px;
+font-size: x-large;
+font-weight: bold;
+position:relative;
+color:white;
+top:-130px;
+
+
+}
+#instructionDetails{
+    border-style: dotted;
+    background-color: pink;
+    display:none;            /*hidden for hover effect*/
+}
+
+.instrSpan{
+display: flex;
+flex-direction:column;
+font-size: medium;
+font-family:monospace,'Times New Roman', Times, serif;
+color:black;
+}
+
+#instructions:hover #instructionDetails{
+    display:block;
+}
+
+#announce-winner{
+    background-color: rgb(240, 87, 87);
+    font-size:x-large;
+    color: white;
+    width: 100%;
+    height: 50px;
+    border: dotted;
+    font-family:monospace,'Times New Roman', Times, serif;
+    text-align: center;
+}
