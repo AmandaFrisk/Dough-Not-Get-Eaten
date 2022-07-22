@@ -27,9 +27,22 @@ Approach:
 
 2 classes were created in Javascript to allow for the 1 or 2 player options. The first class is called Game1 and is for the 1 player option. The second class is called Game2 and is for the 2 player option.
 
-The G1 class was created first and used as source code for the Game2 class. HTML content is minimal as DOM manipulative is used heavily throughout both classes.
+The Game1 class was created first and used as source code for the Game2 class. HTML content is minimal as DOM manipulative is used heavily throughout both classes.
+
 
 Unsolved Problems:
 There's some discrepancies with the timing comparision that I believe is a result of milliseconds loading time differences.
 
 Forthcoming Features:
+Considering changing the timing comparsion to resolve the aforementioned discrepancies.
+
+Credits:
+
+Game play coding inspired by KnifeCircus via the youtube video [
+](https://youtu.be/bG2BmmYr9NQ) 
+
+Graphic Designs by Alexis Mei
+
+Intro.mp3 & winnerMusic.mp3 by Pixabay
+
+game-play.wav by https://www.playonloop.com/
