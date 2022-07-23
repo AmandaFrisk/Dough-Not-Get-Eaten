@@ -38,7 +38,7 @@ Considering changing the timing comparsion to resolve the aforementioned discrep
 
 Credits:
 
-Game play coding inspired by KnifeCircus 
+Game coding logic inspired by KnifeCircus via Youtubeinspired by KnifeCircus 
 
 Graphic Designs by Alexis Mei
 
